@@ -8,7 +8,7 @@ def load_floorplan(file_path):
 
 # Grid aanmaken en vullen met kolommen/muren
 def create_grid(floorplan, grid_size=10):
-    grid = np.full((grid_size, grid_size), "◯")  # Begin met lege cellen
+    grid = np.full((grid_size, grid_size), "O")  # Begin met lege cellen
 
     # Maximale afmetingen van de plattegrond berekenen
     max_x = max(max(wall["start"][0], wall["end"][0]) for wall in floorplan["walls"])
@@ -25,14 +25,14 @@ def create_grid(floorplan, grid_size=10):
         x2 = min(int(wall["end"][0] * scale_x), grid_size - 1)
         y2 = min(int(wall["end"][1] * scale_y), grid_size - 1)
 
-        grid[y1, x1] = "▬"
-        grid[y2, x2] = "▬"
+        grid[y1, x1] = "="
+        grid[y2, x2] = "="
 
     # Kolommen toevoegen aan het grid
     for column in floorplan["columns"]:
         x = min(int(column["position"][0] * scale_x), grid_size - 1)
         y = min(int(column["position"][1] * scale_y), grid_size - 1)
-        grid[y, x] = "🔵"
+        grid[y, x] = "+"
 
     return grid
 
@@ -41,10 +41,10 @@ def print_grid(grid):
     print("\nGrid Weergave:")
     for row in grid:
         print(" ".join(row))
-    print("\nLegenda: 🔵 = Kolom, ▬ = Muur, ◯ = Open Ruimte")
+    print("\nLegenda: + = Kolom, = = Muur, O = Open Ruimte")
 
 # Uitvoeren
 if __name__ == "__main__":
-    floorplan = load_floorplan("floorplan.json")  # JSON-bestand met plattegrond
+    floorplan = load_floorplan("floorplan 2.json")  # JSON-bestand met plattegrond
     grid = create_grid(floorplan, grid_size=10)  # Gridgrootte instellen
     print_grid(grid)
