@@ -100,7 +100,7 @@ def detect_large_spans(grid, max_span=3):
 
 # Uitvoeren
 if __name__ == "__main__":
-    floorplan = load_floorplan("floorplan.json")  # JSON-bestand met plattegrond
+    floorplan = load_floorplan("floorplan 2.json")  # JSON-bestand met plattegrond
     grid = create_grid(floorplan, grid_size=10)  # Gridgrootte instellen
     print_grid(grid)
 

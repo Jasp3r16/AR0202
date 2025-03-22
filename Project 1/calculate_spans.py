@@ -25,7 +25,7 @@ def calculate_spans(floorplan):
 
 # Uitvoeren
 if __name__ == "__main__":
-    floorplan = load_floorplan("floorplan.json")
+    floorplan = load_floorplan("floorplan 2.json")
     spans = calculate_spans(floorplan)
 
     print("\nGevonden overspanningen tussen kolommen:")
