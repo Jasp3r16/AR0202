@@ -1,6 +1,7 @@
+#%%
 import numpy as np
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from random_forest import model
 
@@ -14,7 +15,7 @@ new_design = pd.DataFrame({
 
 # **2. Voorspel het aantal benodigde palen**
 predicted_piles = model.predict(new_design)[0]
-print(f"&#x1f539; AI Advies: Gebruik ongeveer {round(predicted_piles)} palen voor dit ontwerp.")
+print(f"AI Advies: Gebruik ongeveer {round(predicted_piles)} palen voor dit ontwerp.")
 
 
 # **1. Genereer een grid van mogelijke paalposities**
